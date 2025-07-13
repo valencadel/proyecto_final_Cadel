@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Store - Marketplace</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Pokemon Store</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#pokemons">Pokemon</a></li>
+                    <li><a href="#cart" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Gotta Catch 'Em All!</h2>
+                    <p>Explore our Pokemon store!</p>
+                    <button class="cta-button" id="scroll-to-products-btn">View Pokemon</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pokemons-section" id="pokemons">
+            <div class="container">
+                <h2 class="section-title"></h2>
+                <div class="pokemons-container">
+                    <input type="text" id="search-input" placeholder="Enter name or ID">
+                    <button id="search-button">Search</button>
+                </div>
+                <div class="filters">
+                    <label for="type-filter">Filter by type:</label>
+                    <select id="type-filter" class="filter-dropdown">
+                        <option value="all">All</option>
+                        <!-- Types will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="pokemons-grid" id="pokemons-grid">
+                    <!-- Pokemon will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-section" id="cart">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <h3>Total: $<span id="cart-total">0</span></h3>
+            </div>
+            <div class="cart-buttons">
+                <button class="checkout-btn" id="checkout-btn">Checkout</button>
+                <button class="clear-cart-btn" id="clear-cart-btn">Clear Cart</button>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Pokemon Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

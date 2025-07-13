@@ -1,0 +1,733 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.nav a:hover {
+    color: #333;
+}
+
+#cart-count {
+    background: #3498db;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/98.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 6rem 0 3rem;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.cta-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: #2980b9;
+}
+
+/* SECCION DE PRODUCTOS */
+.products-section {
+    padding: 3rem 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* CONTENEDOR DE BÚSQUEDA */
+.pokemons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+#search-input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 300px;
+    max-width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+#search-input::placeholder {
+    color: #999;
+}
+
+#search-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background: #2980b9;
+}
+
+/* FILTROS */
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.filters label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    margin-right: 10px;
+}
+
+.filter-dropdown {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 150px;
+}
+
+.filter-dropdown:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.filter-dropdown:hover {
+    border-color: #3498db;
+}
+
+.filter-dropdown option {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+/* GRID DE POKEMONS */
+.pokemons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image::before {
+    transform: translateX(100%);
+}
+
+.product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-brand {
+    color: #3498db;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.product-types {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.type-badge {
+    background: #3498db;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.type-badge:nth-child(1) { background: #3498db; }
+.type-badge:nth-child(2) { background: #e74c3c; }
+.type-badge:nth-child(3) { background: #f39c12; }
+
+/* Pokemon type colors */
+.type-badge[data-type="fire"] { background: #e74c3c; }
+.type-badge[data-type="water"] { background: #3498db; }
+.type-badge[data-type="grass"] { background: #27ae60; }
+.type-badge[data-type="electric"] { background: #f1c40f; color: #2c3e50; }
+.type-badge[data-type="psychic"] { background: #e91e63; }
+.type-badge[data-type="ice"] { background: #85c1e9; color: #2c3e50; }
+.type-badge[data-type="dragon"] { background: #8e44ad; }
+.type-badge[data-type="dark"] { background: #34495e; }
+.type-badge[data-type="fairy"] { background: #f8c6d4; color: #2c3e50; }
+.type-badge[data-type="fighting"] { background: #d35400; }
+.type-badge[data-type="poison"] { background: #9b59b6; }
+.type-badge[data-type="ground"] { background: #d68910; }
+.type-badge[data-type="flying"] { background: #5dade2; }
+.type-badge[data-type="bug"] { background: #82e0aa; color: #2c3e50; }
+.type-badge[data-type="rock"] { background: #85929e; }
+.type-badge[data-type="ghost"] { background: #6c5ce7; }
+.type-badge[data-type="steel"] { background: #99a3a4; }
+.type-badge[data-type="normal"] { background: #bdc3c7; color: #2c3e50; }
+
+.product-name {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.product-description {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: auto;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #27ae60;
+    margin: 1rem 0 0.5rem 0;
+    text-align: center;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: auto;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+/* CARRITO SIDEBAR */
+.cart-section {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 500px;
+    height: 100vh;
+    background: white;
+    border-left: 1px solid #ddd;
+    z-index: 1001;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+.cart-section.open {
+    right: 0;
+}
+
+.cart-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f8f8;
+}
+
+.cart-header h2 {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-cart:hover {
+    color: #333;
+}
+
+.cart-items {
+    padding: 1rem;
+    flex: 1;
+}
+
+.cart-item {
+    background: #f8f8f8;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    border: 1px solid #ddd;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    color: #333;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.cart-item-info p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #27ae60;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item button:hover {
+    background: #c0392b;
+}
+
+.cart-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #ddd;
+    background: #f8f8f8;
+}
+
+.cart-total {
+    margin-bottom: 1rem;
+}
+
+.cart-total h3 {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.cart-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkout-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background: #219a52;
+}
+
+.clear-cart-btn {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+    background: #7f8c8d;
+}
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .pokemons-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* CUSTOM SWEETALERT STYLES */
+.pokemon-swal-popup {
+    font-family: Arial, sans-serif !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2) !important;
+}
+
+.pokemon-swal-popup .swal2-title {
+    color: #333 !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+}
+
+.pokemon-swal-popup .swal2-content {
+    color: #666 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+}
+
+.pokemon-swal-popup .swal2-html-container {
+    color: #666 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+}
+
+.pokemon-swal-popup .swal2-confirm {
+    background-color: #3498db !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    padding: 10px 20px !important;
+    transition: background-color 0.3s ease !important;
+    margin: 0 5px !important;
+}
+
+.pokemon-swal-popup .swal2-confirm:hover {
+    background-color: #2980b9 !important;
+}
+
+.pokemon-swal-popup .swal2-cancel {
+    background-color: #95a5a6 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    padding: 10px 20px !important;
+    transition: background-color 0.3s ease !important;
+    margin: 0 5px !important;
+}
+
+.pokemon-swal-popup .swal2-cancel:hover {
+    background-color: #7f8c8d !important;
+}
+
+/* Different button colors for different alert types */
+.pokemon-swal-popup .swal2-confirm.swal2-styled[style*="background-color: rgb(231, 76, 60)"] {
+    background-color: #e74c3c !important;
+}
+
+.pokemon-swal-popup .swal2-confirm.swal2-styled[style*="background-color: rgb(231, 76, 60)"]:hover {
+    background-color: #c0392b !important;
+}
+
+.pokemon-swal-popup .swal2-confirm.swal2-styled[style*="background-color: rgb(39, 174, 96)"] {
+    background-color: #27ae60 !important;
+}
+
+.pokemon-swal-popup .swal2-confirm.swal2-styled[style*="background-color: rgb(39, 174, 96)"]:hover {
+    background-color: #219a52 !important;
+}
+
+.pokemon-swal-popup .swal2-icon {
+    margin: 1rem auto !important;
+}
+
+.pokemon-swal-popup .swal2-actions {
+    margin-top: 1.5rem !important;
+}
+
+/* CUSTOM TOASTIFY STYLES */
+.toastify {
+    font-family: Arial, sans-serif !important;
+}
+
+@media (max-width: 900px) {
+    .pokemons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .pokemons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-section {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .nav ul {
+        gap: 1rem;
+    }
+    
+    .nav a {
+        font-size: 1rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-section {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .pokemons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #search-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    #search-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .filters label {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
+    .filter-dropdown {
+        width: 100%;
+        max-width: 300px;
+    }
+}
