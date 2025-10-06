@@ -40,7 +40,7 @@ async function loadPokemons() {
         const data = await response.json();
         
         // Obtener detalles de cada Pokemon
-        const pokemonPromises = data.results.map(async (pokemon, index) => {
+        const pokemonPromises = data.results.map(async (pokemon) => {
             const pokemonResponse = await fetch(pokemon.url);
             const pokemonData = await pokemonResponse.json();
             
